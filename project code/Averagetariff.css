@@ -1,0 +1,155 @@
+/* Общие стили */
+body {
+    font-family: 'Roboto', sans-serif; /* Более приятный шрифт */
+    margin: 0;
+    line-height: 1.7; /* Чуть больший межстрочный интервал для читаемости */
+    background-color: rgba(255, 255, 255, 0.15); /* Светло-серый фон */
+    color: #555; /* Более мягкий цвет текста */
+}
+
+html {
+    scroll-behavior: smooth; /* Включаем плавную прокрутку CSS */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px; /* Увеличен отступ */
+}
+
+
+
+
+
+/* Шапка */
+header {
+    background-color: rgb(63, 63, 63);
+    backdrop-filter: blur(8px);
+    color: #fffdfd;
+    padding: 1.4rem 0; /* Увеличены отступы */
+    box-shadow: 0 2px 5px rgb(255, 255, 0); /* Легкая тень */
+    position: sticky; /* Фиксированное положение при прокрутке */
+    top: 0; /* Прилипает к верхней части экрана */
+    z-index: 100; /* Убедитесь, что шапка находится над другим контентом */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between; /* Размещаем логотип и навигацию по краям */
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    text-align: left;
+    font-size: 2rem; /* Увеличен размер шрифта */
+    font-weight: 700; /* Жирный шрифт */
+    color: #fffdfd;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+    text-align: right;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px; /* Увеличен отступ */
+}
+
+nav a {
+    color: #fffdfd;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative; /*  Необходимо для позиционирования псевдоэлемента */
+    overflow: hidden; /*  Скрываем часть полосы, выходящую за границы */
+    transition: color 0.3s ease; /* Плавный переход цвета при наведении */
+}
+
+nav a:hover {
+    color: rgb(255, 193, 0); /* Цвет при наведении */
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0; /*  Изначально полоса не видна */
+    height: 2px; /* Толщина полосы */
+    background-color: rgb(255, 193, 0); /* Цвет полосы */
+    bottom: 0; /*  Полоса внизу */
+    left: 50%; /*  Начинаем полосу с середины */
+    transform: translateX(-50%); /*  Центрируем полосу */
+    transition: width 0.4s ease; /*  Плавное расширение полосы */
+}
+
+nav a:hover::after {
+    width: 100%; /*  Полоса заполняет всю ширину */
+}
+
+
+
+
+/* Главная секция */
+#hero {
+    background-size: cover; /* Картинка заполнит весь блок */
+    background-position: center; /* Картинка будет центрирована */
+    position: relative; /* Это важно для создания затемнения */
+    color: #fffdfd; /* Меняем цвет текста для лучшей читаемости на фоне картинки */
+    text-align: center; /* Выравниваем текст по центру */
+    padding: 180px 0; /* Добавляем отступы сверху и снизу */
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Затемнение: черный цвет с прозрачностью 50% */
+    z-index: 0; /* Убедитесь, что затемнение находится под текстом и кнопкой */
+}
+#hero > * {
+    position: relative;
+    z-index: 1; /*  Переносим содержимое на передний план, над затемнением */
+}
+
+#hero img {
+    display: none; /*  Скрываем тег img, нам не нужен теперь */
+}
+
+#hero .container {
+    max-width: 800px;
+}
+
+#hero h2 {
+    font-size: 3rem; /* Увеличен размер шрифта */
+    margin-bottom: 1.5rem; /* Увеличен отступ */
+    font-weight: 700; /* Жирный шрифт */
+}
+
+#hero p {
+    font-size: 1.2rem; /* Увеличен размер шрифта */
+    margin-bottom: 2rem; /* Увеличен отступ */
+}
+
+
+
+
+
+/* Секция "О нас" */
+#about {
+    padding: 4rem 0;
+    background-color: #bababa;
+    color: #fff;
+    font-family: 'Times New Roman', sans-serif;
+}
+
+
+#about h2 {
+    text-align: center;
+}
+
+
+
