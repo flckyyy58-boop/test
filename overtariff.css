@@ -1,0 +1,766 @@
+/* Общие стили */
+body {
+    font-family: 'Roboto', sans-serif; /* Более приятный шрифт */
+    margin: 0;
+    line-height: 1.7; /* Чуть больший межстрочный интервал для читаемости */
+    background-color: rgba(255, 255, 255, 0.15); /* Светло-серый фон */
+    color: #555; /* Более мягкий цвет текста */
+}
+
+html {
+    scroll-behavior: smooth; /* Включаем плавную прокрутку CSS */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px; /* Увеличен отступ */
+}
+
+
+
+
+
+/* Шапка */
+header {
+    background-color: rgba(63, 63, 63, 0.92);
+    backdrop-filter: blur(8px);
+    color: #fffdfd;
+    padding: 1.4rem 0; /* Увеличены отступы */
+    box-shadow: 0 2px 5px rgb(255, 255, 0); /* Легкая тень */
+    position: sticky; /* Фиксированное положение при прокрутке */
+    top: 0; /* Прилипает к верхней части экрана */
+    z-index: 100; /* Убедитесь, что шапка находится над другим контентом */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between; /* Размещаем логотип и навигацию по краям */
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    text-align: left;
+    font-size: 2rem; /* Увеличен размер шрифта */
+    font-weight: 700; /* Жирный шрифт */
+    color: #fffdfd;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+    text-align: right;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px; /* Увеличен отступ */
+}
+
+nav a {
+    color: #fffdfd;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative; /*  Необходимо для позиционирования псевдоэлемента */
+    overflow: hidden; /*  Скрываем часть полосы, выходящую за границы */
+    transition: color 0.3s ease; /* Плавный переход цвета при наведении */
+}
+
+nav a:hover {
+    color: rgb(255, 193, 0); /* Цвет при наведении */
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0; /*  Изначально полоса не видна */
+    height: 2px; /* Толщина полосы */
+    background-color: rgb(255, 193, 0); /* Цвет полосы */
+    bottom: 0; /*  Полоса внизу */
+    left: 50%; /*  Начинаем полосу с середины */
+    transform: translateX(-50%); /*  Центрируем полосу */
+    transition: width 0.4s ease; /*  Плавное расширение полосы */
+}
+
+nav a:hover::after {
+    width: 100%; /*  Полоса заполняет всю ширину */
+}
+
+
+
+
+
+
+
+
+/* Главная секция */
+#hero {
+    background-size: cover; /* Картинка заполнит весь блок */
+    background-position: center; /* Картинка будет центрирована */
+    position: relative; /* Это важно для создания затемнения */
+    color: #fffdfd; /* Меняем цвет текста для лучшей читаемости на фоне картинки */
+    text-align: center; /* Выравниваем текст по центру */
+    padding: 240px 0; /* Добавляем отступы сверху и снизу */
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Затемнение: черный цвет с прозрачностью 50% */
+    z-index: 0; /* Убедитесь, что затемнение находится под текстом и кнопкой */
+}
+#hero > * {
+    position: relative;
+    z-index: 1; /*  Переносим содержимое на передний план, над затемнением */
+}
+
+#hero img {
+    display: none; /*  Скрываем тег img, нам не нужен теперь */
+}
+
+#hero .container {
+    max-width: 800px;
+}
+
+#hero h2 {
+    font-size: 3rem; /* Увеличен размер шрифта */
+    margin-bottom: 1.5rem; /* Увеличен отступ */
+    font-weight: 700; /* Жирный шрифт */
+}
+
+#hero p {
+    font-size: 1.2rem; /* Увеличен размер шрифта */
+    margin-bottom: 2rem; /* Увеличен отступ */
+}
+
+
+/* Секция "О нас" */
+#district {
+    padding: 4rem 0; /* Увеличен отступ */
+    background-color: #3f3f3f;
+    color: #fff;
+}
+#district h2 {
+    text-align: center;
+}
+
+
+
+/* Обертка с аспектным соотношением (16:9) */
+.slider-wrapper {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+
+    /* Аспектное отношение */
+    padding-top: 56.25%; /* 16:9 */
+}
+
+/* Сам слайдер внутри */
+.slider {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    border-radius: 20px;
+}
+
+/* Каждый слайд ведет себя как карточка */
+.slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Изображения с эффектом плавного масштабирования */
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.slide:hover img {
+    transform: scale(1.05);
+}
+
+
+
+/* Убираем текст кнопок, заменим на стрелки через псевдоэлементы */
+.nav.prev::before,
+.nav.next::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-top: 3px solid #333;
+    border-right: 3px solid #333;
+}
+
+/* Левая стрелка — повернём лево вниз */
+.nav.prev::before {
+    transform: rotate(-135deg);
+}
+
+/* Правая стрелка — повернём право вниз */
+.nav.next::before {
+    transform: rotate(45deg);
+}
+
+.nav:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+}
+
+/* Позиционирование по бокам */
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+/* Индикаторы */
+.indicators {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.dot:hover,
+.dot.active {
+    background: #fff;
+    transform: scale(1.2);
+}
+
+
+/* === Красивый футер === */
+.site-footer {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    color: #ccc;
+    padding: 50px 0 0;
+    border-top: 1px solid #333;
+    position: relative;
+    overflow: hidden;
+}
+.site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #FFCC00, transparent);
+}
+
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px; }
+
+
+.footer-brand h3 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    position: relative;
+    display: inline-block;
+}
+
+
+.footer-brand h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: #FFCC00;
+    border-radius: 2px;
+}
+
+
+.footer-brand p {
+    font-size: 0.95rem;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+
+
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+    color: #fff;
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+
+.footer-links h4::after,
+.footer-contact h4::after,
+.footer-social h4::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: #FFCC00;
+}
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-links li {
+    margin-bottom: 10px;
+}
+.footer-links a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-left: 12px;
+}
+
+
+.footer-links a::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+    color: #FFCC00;
+}
+
+
+.footer-links a:hover {
+    color: #FFCC00;
+}
+
+
+.footer-links a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.footer-contact p,
+.footer-social p {
+    margin: 8px 0;
+    font-size: 0.95rem;}
+
+
+
+/* Скрыть кнопки навигации только на мобильных */
+@media (max-width: 768px) {
+
+    /* Скрыть кнопки и элементы навигации */
+    .nav-buttons,
+    .header-buttons,
+    .cta-buttons,
+    .menu-toggle,
+    .mobile-menu,
+    .hamburger-menu,
+    nav:not(.logo-container),
+    .navigation,
+    .main-nav,
+    .header-nav {
+        display: none !important;
+    }
+
+    /* Оставить видимым только логотип */
+    .logo,
+    .site-title,
+    .company-name,
+    .header .logo {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Центрировать логотип на мобильных */
+    header {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        height: 60px !important; /* Оптимальная высота для мобильных */
+    }
+
+    @media (max-width: 320px) {
+        header .container {
+            gap: 0.8rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #333;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container.hidden {
+            transform: translateY(-100%);
+        }
+
+        header h1 {
+            font-size: 1.1rem;
+            line-height: 1.1;
+            text-align: center;
+        }
+
+        nav {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 0.3rem;
+        }
+
+        nav ul {
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            padding: 0 0.5rem;
+            gap: 0.4rem;
+        }
+
+        nav a {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.6rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        /* Скрыть скроллбар для лучшего вида */
+        nav::-webkit-scrollbar {
+            height: 2px;
+        }
+
+        nav::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        #hero {
+            font-size: 14px; /* Базовый размер для всей секции */
+        }
+
+        #hero h2 {
+            font-size: 1.4rem; /* ~22px */
+            line-height: 1.1;
+        }
+
+        #hero p {
+            font-size: 0.85rem; /* ~13.5px */
+            line-height: 1.3;
+        }
+    }
+}
+
+
+
+
+@media (max-width:430px) {
+    header.container {
+        gap: 0.8rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: #333;
+        color: white;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header.container.hidden {
+        transform: translateY(-100%);
+    }
+
+    header h1 {
+        font-size: 1.1rem;
+        line-height: 1.1;
+        text-align: center;
+    }
+
+    nav {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.3rem;
+    }
+
+    nav ul {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding: 0 0.5rem;
+        gap: 0.4rem;
+    }
+
+    nav a {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    /* Скрыть скроллбар для лучшего вида */
+    nav::-webkit-scrollbar {
+        height: 2px;
+    }
+
+    nav::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    #hero {
+        font-size: 14px; /* Базовый размер для всей секции */
+    }
+
+    #hero h2 {
+        font-size: 1.4rem; /* ~22px */
+        line-height: 1.1;
+    }
+
+    #hero p {
+        font-size: 0.85rem; /* ~13.5px */
+        line-height: 1.3;
+    }
+
+    #hero .button {
+        display: inline-flex; /* или просто flex */
+        align-items: center; /* вертикальное выравнивание */
+        justify-content: center; /* горизонтальное выравнивание */
+        text-align: center; /* подстраховка для многострочного текста */
+        font-size: 0.70rem;
+        padding: 0.12rem 0.8rem;
+        min-width: 60px;
+        min-height: 35px;
+        line-height: normal; /* чтобы не было перекосов по высоте */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Соцсети — стилизованные точки */
+.social-icons {
+    display: flex;
+    gap: 14px;
+    margin-top: 12px;
+}
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #333;
+    color: #FFCC00;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+
+/* Стили для каждой соцсети при наведении */
+.footer-social .social-icons a:hover {
+    color: #fff; /* Белый текст */
+}
+
+.footer-social .social-icons a[aria-label="ВКонтакте"]:hover {
+    background-color: #216191; /* Синий фон для ВКонтакте */
+}
+
+.footer-social .social-icons a[aria-label="Telegram"]:hover {
+    background-color: #229ed9; /* Голубой фон для Telegram */
+}
+
+.footer-social .social-icons a[aria-label="WhatsApp"]:hover {
+    background-color: #25d366; /* Зеленый фон для WhatsApp */
+}
+
+.footer-social .social-icons a[aria-label="Instagram"]:hover {
+    background-color: #e4405f; /* Розовый фон для Instagram (приблизительно) */
+}
+
+
+
+
+
+
+/* Нижняя строка */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 30px auto 0;
+    padding: 20px 30px;
+    text-align: center;
+    border-top: 1px solid #333;
+    color: #888;
+    font-size: 0.9rem;
+
+}
+
+
+
+
+
+
+/* Адаптивный дизайн */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px; /* Уменьшен отступ */
+    }
+
+    header .container {
+        flex-direction: column; /* Размещаем логотип и навигацию друг под другом */
+        text-align: center;
+    }
+
+    nav ul {
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .services-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .footer-links a::before {
+        display: none;
+    }
+
+    .footer-links a {
+        padding-left: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Общие настройки анимаций (как в animate.css) */
+.animate__animated {
+    --animate-duration: 0.8s;                    /* можно переопределять через CSS-переменную */
+    animation-duration: var(--animate-duration);
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+
+
+
+
+/* Ключевые кадры для fadeInUp */
+@keyframes animate__fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 40px, 0);
+    }
+    60% {
+        opacity: 1;
+        transform: translate3d(0, -6px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+
+
+
+/* Сам эффект */
+.animate__fadeInUp {
+    animation-name: animate__fadeInUp;
+}
+
+
+
+/* Состояние по умолчанию для элементов, которые будут анимироваться */
+.fade-in {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+    will-change: opacity, transform;
+}
+
+
+
+
+/* На случай, если нужно сразу показать без анимации (подстраховка) */
+.fade-in.animate__animated {
+    opacity: 1;
+}
+
+
+
+
+/* Удобные утилиты: задать длительность/задержку через CSS-переменные */
+.fade-in[data-anim-duration] {
+    --animate-duration: attr(data-anim-duration s);
+}

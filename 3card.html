@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Частный дом</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js" integrity="sha256-huW7yWl7tNfP7lGk46XE+Sp0nCotjzYodhVKlwaNeco=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/gallery.theme.css">
+    <link rel="stylesheet" href="css/gallery.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="3card.js" defer></script>
+    <link rel="stylesheet" href="3card.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Строительная фирма "Надежность"</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="index.html#about">О нас</a></li>
+                <li><a href="index.html#services">Услуги</a></li>
+                <li><a href="index.html#project-slider">Портфолио</a></li>
+                <li><a href="index.html#cards">Тарифы</a></li>
+                <li><a href="index.html#reviews">Отзывы</a></li>
+                <li><a href="index.html#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section id="hero">
+        <div class="container">
+            <h2 class="fade-in">Частные дома</h2>
+            <p class="fade-in">Поселок городского типа "Надежный"</p>
+        </div>
+    </section>
+
+    <section id="district">
+        <div class="container">
+            <h2 class="fade-in">
+                О нас
+            </h2>
+            <h3 class="fade-in">
+                Строительная фирма "Надежность" успешно работает на строительном рынке города Тюмени с 2000 года. За эти годы мы реализовали больше 2000 проектов различной сложности, от уютных частных домов и коттеджей до современных многоквартирных жилых комплексов и коммерческих зданий.
+            </h3>
+            <h3 class="fade-in">
+                Наша команда – это опытные архитекторы, инженеры, строители и дизайнеры, обладающие необходимыми знаниями и навыками для воплощения в жизнь самых смелых идей. Мы предлагаем полный комплекс строительных услуг:
+            </h3>
+            <ul class="fade-in">
+                <h3><li class="fade-in">Разработка проектной документации</li>
+                    <li class="fade-in">Строительство "под ключ"</li>
+                    <li class="fade-in">Ремонт и реконструкция</li>
+                    <li class="fade-in">Отделочные работы</li>
+                    <li class="fade-in">Ландшафтный дизайн</li></h3>
+            </ul>
+            <h3 class="fade-in">
+                Мы гордимся своей репутацией надежного партнера, ориентированного на результат. Наша главная цель – превзойти ожидания клиентов и создать пространство, которое будет радовать долгие годы.
+            </h3>
+        </div>
+    </section>
+
+    <section id="photo ">
+        <div class="container">
+            <div class="slider-wrapper fade-in">
+                <!-- Стрелки навигации -->
+                <button class="nav prev fade-in" aria-label="предыдущий слайд">&#10094;</button>
+                <button class="nav next fade-in" aria-label="следующий слайд">&#10095;</button>
+
+                <!-- Слайдер -->
+                <div class="slider">
+
+
+                    <!-- Слайд 1 -->
+                    <div class="slide active">
+                        <img src="image/home.jpg" alt="Изображение 1" />
+                    </div>
+                    <!-- Слайд 2 -->
+                    <div class="slide">
+                        <img src="image/home.jpg" alt="Изображение 2" />
+                    </div>
+                    <!-- Слайд 3 -->
+                    <div class="slide">
+                        <img src="image/home.jpg" alt="Изображение 3" />
+                    </div>
+                </div>
+
+                <!-- Индикаторы -->
+                <div class="indicators">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Логотип / Название -->
+            <div class="footer-brand fade-in">
+                <h3>Компания</h3>
+                <p>Создаём будущее уже сегодня</p>
+            </div>
+            <!-- Навигация -->
+            <div class="footer-links fade-in">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index.html#about">О нас</a></li>
+                    <li><a href="index.html#services">Услуги</a></li>
+                    <li><a href="index.html#project-slider">Портфолио</a></li>
+                    <li><a href="index.html#cards">Тарифы</a></li>
+                    <li><a href="index.html#reviews">Отзывы</a></li>
+                    <li><a href="index.html#contacts">Контакты</a></li>
+                </ul>
+            </div>
+            <!-- Контакты -->
+            <div class="footer-contact fade-in">
+                <h4>Контакты</h4>
+                <p>info@vashasait.ru</p>
+                <p>📞 +7 (999) 123-45-67</p>
+                <p> г. Москва, ул. Примерная, д. 10</p>
+            </div>
+
+            <!-- Соцсети -->
+            <div class="footer-social fade-in">
+                <h4>Следите за нами</h4>
+                <div class="social-icons">
+                    <a href="https://vk.com/danya_strilets" aria-label="ВКонтакте"><i class="fab fa-vk"></i></a>
+                    <a href="https://t.me/+cc_AJmIeoaA2YjYy" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Ваша Компания. Все права защищены.</p>
+        </div>
+    </footer>
+
+</main>
